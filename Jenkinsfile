@@ -9,6 +9,14 @@ node{
     sh "${mvnHome}/bin/mvn package"
   }
   
+  stage('Sonar-Qube'){
+    def mvnHome = tool name: 'maven-plugin', type: 'maven'
+    withSonarQubeEnv('sonaradmin'){
+      sh "${mvnHome}/bin/mvn sonar:sonar"
+    }
+      
+  }
+  
   
   
   stage('Slack-Notification'){
