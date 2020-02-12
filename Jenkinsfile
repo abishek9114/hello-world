@@ -20,7 +20,7 @@ node{
       
   stage('Deploy War on Tomcat'){
     sshagent(['tomcat-ssh-key']) {
-      sh 'scp target/*.war ec2-user@172.31.37.136:/opt/tomcat/webapps/'
+      sh 'scp /var/lib/jenkins/workspace/war-deployment/webapp/target/webapp.war ec2-user@172.31.37.136:/opt/tomcat/webapps/'
 }
   
   }
