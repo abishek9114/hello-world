@@ -16,7 +16,7 @@ node{
     }
       
   }
-      
+    
       
   stage('Deploy War on Tomcat'){
     sshagent(['tomcat-ssh-key']) {
