@@ -3,5 +3,5 @@ From tomcat:latest
 
 # take the war file and copy to tomcat webapps 
 MAINTAINER "valaxytech@gmail.com" 
-COPY /var/lib/jenkins/workspace/war-deployment/webapp/target/webapp.war /usr/local/tomcat/webapps
+ADD /var/lib/jenkins/workspace/war-deployment/webapp/target/webapp.war /usr/local/tomcat/webapps/
 
