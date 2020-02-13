@@ -8,15 +8,6 @@ node{
     def mvnHome = tool name: 'maven-plugin', type: 'maven'
     sh "${mvnHome}/bin/mvn clean package"
   }
-  
-  stage('Sonar-Qube'){
-    def mvnHome = tool name: 'maven-plugin', type: 'maven'
-    withSonarQubeEnv('sonaradmin'){
-      sh "${mvnHome}/bin/mvn sonar:sonar"
-    }
-      
-  }
-    
       
   stage('Build Docker Image'){
     sh 'docker build -t abishek9114/helloworld .'
