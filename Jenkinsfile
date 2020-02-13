@@ -6,7 +6,7 @@ node{
   
   stage('Complie-Package'){
     def mvnHome = tool name: 'maven-plugin', type: 'maven'
-    sh "${mvnHome}/bin/mvn package"
+    sh "${mvnHome}/bin/mvn clean package"
   }
   
   stage('Sonar-Qube'){
@@ -18,10 +18,8 @@ node{
   }
     
       
-  stage('Deploy War on Tomcat'){
-    sshagent(['tomcat-ssh-key']) {
-      sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/war-deployment/webapp/target/webapp.war ec2-user@172.31.37.136:/opt/tomcat/webapps'
-}
+  stage('Build Docker Image'){
+    sh 'docker build -t abishek9114/helloworld .'
   
   }
   
