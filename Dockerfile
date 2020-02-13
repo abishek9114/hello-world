@@ -1,5 +1,5 @@
 # Pull base image 
-From tomcat:8 -jre
+From tomcat:latest
 
 # take the war file and copy to tomcat webapps 
 MAINTAINER "valaxytech@gmail.com" 
